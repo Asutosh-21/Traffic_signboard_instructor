@@ -1,0 +1,412 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <title>Index</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+    
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212; /* Dark theme */
+      color: #fff; /* Text color */
+      transition: background-color 0.5s ease; /* Smooth background transition */
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards; /* Fade-in animation */
+    }
+
+    .header-container h1 {
+      font-family: 'Graduate', sans-serif;
+      font-weight: bold;
+      font-size: 60px;
+      margin-bottom: 0px;
+      margin-top: 0px;
+      margin-left: 0px;
+      color:white;
+      animation: zoomIn 1.5s ease-out;
+    }
+
+    .header-container p {
+      font-family: 'Arial', sans-serif;
+      font-size: 20px;
+      margin-top: 0px;
+      color: #fff;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .header-container span {
+      font-family: 'Graduate', sans-serif;
+      font-weight: bold;
+      color:green; /* green color */
+    }
+
+    .header-container .logo {
+      width: 10%;
+      height: auto;
+      margin-right: 15%;
+      animation: bounceIn 1.5s ease-out;
+    }
+
+    /* Header Text Animations */
+    .header-container h1:hover {
+      transform: scale(1.1); /* Scale on hover */
+      transition: transform 0.3s ease;
+    }
+
+    .header-container p:hover {
+      opacity: 0.7;
+    }
+
+    /* Main Image Section */
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: auto;
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 10px;
+      animation: zoomIn 2s ease-out; /* Zoom-in animation */
+    }
+
+    /* About the Project Section */
+    #about {
+      background-color: #1a1a1a;
+      padding: 50px 0;
+      text-align: center;
+      animation: fadeIn 2s forwards;
+    }
+
+    #about h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .stats div {
+      font-size: 1.5rem;
+      color: #00bcd4;
+      transition: transform 0.3s ease;
+    }
+
+    .stats div:hover {
+      transform: scale(1.1);
+    }
+
+    /* Why Us Section */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .title span {
+      font-family: 'Graduate', sans-serif;
+      color: #ff4081; /* Pink */
+    }
+
+    .description {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 50px;
+    }
+
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .text-box {
+      flex: 1 1 45%;
+      text-align: left;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .text-box h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .text-box p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .text-box a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .text-box a:hover {
+      text-decoration: underline;
+    }
+
+    .image-box {
+      flex: 1 1 45%;
+    }
+
+    .image-box img {
+      width: 65%;
+      height: 65%;
+      border-radius: 10px;
+      animation: zoomIn 1.5s ease-out;
+    }
+
+    /* Upcoming Plans Section */
+    #plans {
+      background-color: #333;
+      padding: 50px 0;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    #plans h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .plan-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .plan {
+      background-color: #ff4081;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .plan:hover {
+      background-color: #f50057;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #1a73e8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    footer h3 {
+      font-size: 1.8rem;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    footer form input {
+      padding: 10px;
+      font-size: 1rem;
+      margin-right: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    footer form button {
+      padding: 10px 15px;
+      background-color: #ffcc00;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer form button:hover {
+      background-color: #ffaa00;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      from {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo">
+      <div>
+        <h1>Traffic Sign Prediction</h1>
+        <p>Predictions Made <span>Smarter</span> and <span>Proactive</span>.<br> Say hello to effortless Predictions.</p>
+        <a href="home/" class="cta-button">Get Started with Bot</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Centered Image Section -->
+  <div class="image-container">
+    <img src="{% static 'images/main_image.jpg' %}" alt="Traffic Signs" class="centered-image">
+  </div>
+
+  <!-- About the Project Section -->
+  <section id="about">
+    <h2>About the Project</h2>
+    <p>
+      The Application provides a user interface for uploading images, viewing the recognized traffic signs, and displaying 
+      information about each sign.  
+    </p>
+    <div class="stats">
+      <div><span>40+</span> Traffic Signs Included</div>
+      <div><span>1,200+</span> Users active daily</div>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <div class="container">
+    <div class="title">Why Choose <span>Us?</span></div>
+    <p class="description"></p>
+    
+    <div class="section">
+      <div class="text-box">
+        <h2>Make easy predictions.</h2>
+        <p>
+          <strong>Supercharge your AI learning experience by unlocking advanced insights and learning.</strong>
+        </p>
+        <p>
+          We invest in fostering enduring, impactful learning experiences, supporting our students on their educational journey with comprehensive resources and AI learning.
+        </p>
+        <a href="#">Learn more →</a>
+      </div>
+      <div class="image-box">
+        <img src="{% static 'images/whyus-1.png' %}" alt="Students studying in a library">
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="image-box">
+        <img src="{% static 'images/whyus-2.png' %}" alt="AI-powered classroom">
+      </div>
+      <div class="text-box">
+        <h2>Clear your doubt with AI.</h2>
+        <p>
+          <strong>Clarify your questions and uncertainties with AI-powered insights and solutions.</strong>
+        </p>
+        <p>
+          Our AI-driven solutions are designed to help students and professionals master their fields, leading to top performance and up to 90% mastery in their areas of study.
+        </p>
+        <a href="#">Learn more →</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="plans">
+    <h2>Upcoming Plans</h2>
+    <p>For making prediction more easy.</p>
+    <div class="plan-cards">
+      <div class="plan">Real Time Analysis</div>
+      <div class="plan">Storing User's History</div>
+      <div class="plan">Integrating IoT Devices</div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Join Our Team</h3>
+    <p>
+      Be part of this project to bring AI innovation everywhere. Send your resume to
+      <a href="mailto:example@gmail.com">example@gmail.com</a>.
+    </p>
+    <form action="#" method="post">
+      <input type="email" name="email" placeholder="Enter your email">
+      <button type="submit">Submit</button>
+    </form>
+    <p>© 2024 Infosys</p>
+  </footer>
+</body>
+</html>

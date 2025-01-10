@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1, h2 {
+    margin: 0.5em 0;
+    text-align: center;
+}
+
+p {
+    margin: 0.5em 0;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Header Section */
+header {
+    background: rgba(209, 227, 248, 0.49);
+    text-align: center;
+    padding: 2em 1em;
+}
+
+
+header .cta-button {
+    display: inline-block;
+    margin-top: 1em;
+    padding: 1em 2em;
+    background: #0505e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header .cta-button:hover {
+    background-color: black;
+    color: white;
+}
+
+header img.robot-image {
+    width: 150px;
+    margin-top: 1em;
+}
+
+.image-container {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Vertical alignment (if needed in parent container) */
+    height: auto;  
+    width: 200%;
+}
+.header-container h1{
+  font-family: 'Graduate',sans-serif;
+}
+
+.centered-image {
+    max-width: 100%; /* Image occupies up to 50% of the container's width */
+    height: 200%; /* Preserves aspect ratio */
+    max-height: 500%; /* Sets a maximum height */
+}
+
+/* About Section */
+#about {
+    background: #ffffff;
+    padding: 2em 1em;
+    text-align: center;
+}
+
+#about h2 {
+    color: #333;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.stats div {
+    width: 30%;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 0; /* Add vertical spacing */
+}
+
+.stats div span {
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+/* Updated Why Us Section */
+/* .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.title span {
+    color: #079afc; 
+}
+
+.description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 20px;
+}
+
+.text-box {
+    flex: 1 1 20%;
+    text-align: left;
+}
+
+.text-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.text-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.text-box a {
+    color: #007acc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.text-box a:hover {
+    text-decoration: underline;
+}
+
+.image-box {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1 1 45%;
+    align-items: right;
+    
+}
+
+.image-box img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+} */
+
+/* Upcoming Plans Section */
+#plans {
+    padding: 2em 1em;
+    text-align: center;
+}
+
+.plan-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+    margin-top: 1.5em;
+}
+
+.plan {
+    background: #eef6ff;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 200px;
+    max-width: 200px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.plan:hover {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Footer Section */
+footer {
+    background: #333;
+    color: white;
+    padding: 2em 1em;
+    text-align: center;
+}
+
+footer a {
+    color: #007bff;
+}
+
+footer form {
+    margin-top: 1em;
+}
+
+footer form input {
+    padding: 0.5em;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 0.5em;
+}
+
+footer form button {
+    padding: 0.5em 1em;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+footer form button:hover {
+    background-color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features, .plan-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stats {
+        flex-direction: column;
+    }
+
+    .stats div {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .section {
+        flex-direction: column;
+    }
+
+    .text-box, .image-box {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    footer form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer form input {
+        margin-bottom: 1em;
+        width: 100%; /* Full width for input on smaller screens */
+    }
+
+    footer form button {
+        width: auto;
+    }
+}

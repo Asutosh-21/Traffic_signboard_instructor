@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url("{% static 'images/traffic_background.jpg' %}") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for readability */
+    }
+
+    .image-section {
+      flex: 1;
+      background-color: #1f2937;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: white;
+    }
+
+    .image-section img {
+      width: 80%;
+    }
+
+    .right-section {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .right-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #111827;
+      font-weight: bold;
+    }
+
+    .right-section p {
+      margin: 10px 0 20px;
+      color: #555;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 7px;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #6366f1;
+      box-shadow: 0 0 3px rgba(99, 102, 241, 0.5);
+    }
+
+    .error-message {
+      color: #F44336;
+      font-size: 0.875rem;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 15px;
+      background-color: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #4f46e5;
+    }
+
+    .divider {
+      position: relative;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 40%;
+      height: 1px;
+      background-color: #d1d5db;
+    }
+
+    .divider::before {
+      left: 0;
+    }
+
+    .divider::after {
+      right: 0;
+    }
+
+    .divider span {
+      background-color: white;
+      padding: 0 10px;
+      color: #6b7280;
+    }
+
+    .google-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      border: 1px solid #d1d5db;
+      background-color: white;
+      color: #111827;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .google-button:hover {
+      background-color: #f9fafb;
+    }
+
+    .google-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    .login-link a {
+      color: #6366f1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      color: #4f46e5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-section">
+      <img src="{% static 'images/chatbot_register.png' %}" alt="Robot">
+    </div>
+    <div class="right-section">
+      <h2>Sign Up</h2>
+      <p>Create an account to get started</p>
+      <form id="signupForm" method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <input type="text" id="username" name="username" placeholder="User Name" value="{{ form.username.value }}">
+        <div class="error-message" id="usernameError">{% if form.username.errors %}{{ form.username.errors }}{% endif %}</div>
+
+        <input type="email" id="email" name="email" placeholder="Email address" value="{{ form.email.value }}">
+        <div class="error-message" id="emailError">{% if form.email.errors %}{{ form.email.errors }}{% endif %}</div>
+
+        <input type="password" id="password1" name="password1" placeholder="Password">
+        <div class="error-message" id="password1Error">{% if form.password1.errors %}{{ form.password1.errors }}{% endif %}</div>
+
+        <input type="password" id="password2" name="password2" placeholder="Confirm Password">
+        <div class="error-message" id="password2Error">{% if form.password2.errors %}{{ form.password2.errors }}{% endif %}</div>
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <div class="divider">
+        <span>OR</span>
+      </div>
+
+      <div class="google-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 326667 333333">
+          <path d="M326667 170370c0-13704-1112-23704-3518-34074H166667v61851h91851c-1851 15371-11851 38519-34074 54074l-311 2071 49476 38329 3428 342c31481-29074 49630-71852 49630-122593m0 0z" fill="#4285f4"></path>
+          <path d="M166667 333333c44999 0 82776-14815 110370-40370l-52593-40742c-14074 9815-32963 16667-57777 16667-44074 0-81481-29073-94816-69258l-1954 166-51447 39815-673 1870c27407 54444 83704 91852 148890 91852z" fill="#34a853"></path>
+          <path d="M71851 199630c-3518-10370-5555-21482-5555-32963 0-11482 2036-22593 5370-32963l-93-2209-52091-40455-1704 811C6482 114444 1 139814 1 166666s6482 52221 17777 74814l54074-41851m0 0z" fill="#fbbc04"></path>
+          <path d="M166667 64444c31296 0 52406 13519 64444 24816l47037-45926C249260 16482 211666 1 166667 1 101481 1 45185 37408 17777 91852l53889 41853c13520-40185 50927-69260 95001-69260m0 0z" fill="#ea4335"></path>
+        </svg>
+        Sign in with Google
+      </div>
+
+      <div class="login-link">
+        Already have an account? <a href="/login">Log In</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', (event) => {
+      let isValid = true;
+
+      const username = document.getElementById('username');
+      const email = document.getElementById('email');
+      const password1 = document.getElementById('password1');
+      const password2 = document.getElementById('password2');
+
+      const validateInput = (input, errorId, condition, errorMessage) => {
+        const error = document.getElementById(errorId);
+
+        if (condition) {
+          input.classList.remove('error');
+          error.textContent = '';
+        } else {
+          input.classList.add('error');
+          error.textContent = errorMessage;
+          isValid = false;
+        }
+      };
+
+      validateInput(username, 'usernameError', username.value.trim() !== "", "Name cannot be empty.");
+      validateInput(email, 'emailError', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value), "Invalid email address.");
+      validateInput(password1, 'password1Error', password1.value.trim().length >= 8, "Password must be at least 8 characters long.");
+      validateInput(password2, 'password2Error', password1.value === password2.value, "Passwords do not match.");
+
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

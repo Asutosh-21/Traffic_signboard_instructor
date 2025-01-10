@@ -1,0 +1,6 @@
+django
+pillow
+tensorflow
+opencv-python
+python-dotenv
+keras
