@@ -17,7 +17,6 @@
 | Frontend      | HTML, CSS, JS            | Web UI, themes, interactivity           |
 | Backend       | Django                    | REST API, business logic, admin         |
 | ML Model      | Keras (CNN)               | Image recognition/classification        |
-| Database      | SQLite (dev), PostgreSQL  | User data, predictions, history         |
 | Auth & Admin  | Django Auth/Admin         | Registration, login, site management    |
 | Static/Media  | Django Static/Media       | Images, CSS, model files                |
          |
